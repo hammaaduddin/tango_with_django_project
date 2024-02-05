@@ -10,6 +10,7 @@ def index(request):
     #that will be passed to the template engine
 
     category_list = Category.objects.order_by('-likes')[:5]
+    page_list = Page.objects.order_by('-views')[:5]
 
     context_dict = {}
 
@@ -18,6 +19,7 @@ def index(request):
     
     context_dict = {"boldmessage": "Crunchy, creamy, cookie, candy, cupcake!"}
     context_dict['categories'] = category_list
+    context_dict['pages'] = page_list
     
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
@@ -61,3 +63,24 @@ def show_category(request, category_name_slug):
 
     #Go render the response and return it to the client
     return render(request, 'rango/category.html', context=context_dict)
+
+def show_page(request, page_name_slug):
+    #create a context dictionary which we can pass
+    #to the template rendering engine
+    context_dict = {}
+
+    try:
+        #can we find a category name slug with the given name?
+        #if we cant, the .get() method raises a DoesNotExist exception
+        #the .get() method returns one model instance or raises an exception
+        page = Page.objects.get(slug=page_name_slug)
+
+    except Page.DoesNotExist:
+        #we get here if we didnt find the specified category
+        #dont do anything -
+        #the template will display the 'no category' message for us
+        
+        context_dict['pages'] = None
+
+    #Go render the response and return it to the client
+    return render(request, 'rango/page.html', context=context_dict)

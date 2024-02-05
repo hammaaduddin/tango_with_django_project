@@ -7,9 +7,11 @@
     </head>
 
     <body>
+        
         <div>
-        {% if category %}
-            <h1>{{ category.name }}</h1>
+        {% if page %}
+            <h1>{{ page.name }}</h1>
+            
             {% if pages %}
             <ul>
                 {% for page in pages %}
@@ -20,14 +22,9 @@
             <strong>No pages currently in category.</strong>
             {% endif %}
         {% else %}
-            The specified category does not exist.
+            The specified page does not exist.
         {% endif %}    
         </div>
 
-        <div>
-            <strong>Below is the link back to the home page</strong>
-            <li><a href='/'>Index</a><br /></li>
-        </div>
     </body>
-    
 </html>
