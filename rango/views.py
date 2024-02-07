@@ -4,8 +4,9 @@ from rango.models import Category
 from rango.models import Page
 from rango.forms import CategoryForm
 from django.shortcuts import redirect
-from rango.forms import PageForm
 from django.urls import reverse
+from rango.forms import PageForm
+
 
 def index(request):
     #Query the database for the list of All categories currently stored
@@ -111,9 +112,7 @@ def add_page(request, category_name_slug):
                 page.category = category
                 page.views = 0
                 page.save()
-                return redirect(reverse('rango:show_category',
-                                        kwargs={'category_name_slug':
-                                                category_name_slug}))
+                return redirect(reverse('rango:show_category', kwargs={'category_name_slug': category_name_slug}))
         else:
             print(form.errors)
     context_dict = {'form': form, 'category': category}
