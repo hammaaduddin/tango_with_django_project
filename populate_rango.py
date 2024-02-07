@@ -1,6 +1,5 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                      'tango_with_django_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
 
 import django
 django.setup()
@@ -14,40 +13,34 @@ def populate():
     #through each data structure, and add the data to our models.
 
     python_pages = [
-
         {'title': 'Official Python Tutorial',
          'url':'http://docs.python.org/3/tutorial/',
-         'views': 100},
-         {'title':'How to Think like a Computer Scientist',
-          'url':'http://www.greenteapress.com/thinkpython/',
+         'views': 100,},
+        {'title':'How to Think like a Computer Scientist',
+         'url':'http://www.greenteapress.com/thinkpython/',
          'views': 60},
-          {'title':'Learn Python in 10 Minutes',
-           'url':'http://www.korokithakis.net/tutorials/python/',
-         'views': 90},
-    ]
-
+        {'title':'Learn Python in 10 Minutes',
+         'url':'http://www.korokithakis.net/tutorials/python/',
+         'views': 90} ]
+    
     django_pages = [
-
-        {'title': 'Official Django Tutorial',
-         'url':'http://docs.djangoproject.com/en/2.1/intro/tutorial01/',
+        {'title':'Official Django Tutorial',
+         'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',
          'views': 50},
-         {'title':'Django Rocks',
-          'url':'http://www.djangorocks.com/',
+        {'title':'Django Rocks',
+         'url':'http://www.djangorocks.com/',
          'views': 50},
-          {'title':'How to Tango with Django',
-           'url':'http://www.tangowithdjango.com/',
-           'views': 80},
-    ]
-
+        {'title':'How to Tango with Django',
+         'url':'http://www.tangowithdjango.com/',
+         'views': 80} ]
+    
     other_pages = [
-
-        {'title': 'Bottle',
+        {'title':'Bottle',
          'url':'http://bottlepy.org/docs/dev/',
          'views': 50},
-         {'title':'Flask',
-          'url':'http://flask.pocoo.org/',
-          'views': 70},
-    ]
+        {'title':'Flask',
+         'url':'http://flask.pocoo.org',
+         'views': 70} ]
 
 
     cats = {'Python': {'pages': python_pages, 'views': 128, 'likes': 64},

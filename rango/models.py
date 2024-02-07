@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib import admin
 from django.template.defaultfilters import slugify
 
 class Category(models.Model):
@@ -24,13 +23,5 @@ class Page(models.Model):
     url = models.URLField()
     views = models.IntegerField(default=0)
 
-    
-
     def __str__(self):
         return self.title
-
-class PageAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'url')
-
-
-
